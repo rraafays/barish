@@ -6,3 +6,4 @@ description = "weather info in your terminal provided by bbc"
 license = "MIT"
 
 [dependencies]
+curl = "0.4.44"
