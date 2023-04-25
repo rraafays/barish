@@ -2,14 +2,14 @@
 use curl::easy::{ Easy2, Handler, WriteError };
 
 fn main() {
-  let mut easy = Easy2::new(Collector(Vec::new()));
-  easy.get(true).unwrap();
-  easy.url("https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/2643123").unwrap();
-  easy.perform().unwrap();
+  let mut curl = Easy2::new(Collector(Vec::new()));
+  curl.get(true).unwrap();
+  curl.url("https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/2643123").unwrap();
+  curl.perform().unwrap();
 
-  assert_eq!(easy.response_code().unwrap(), 200);
-  let contents = easy.get_ref();
-  println!("{}", String::from_utf8_lossy(&contents.0));
+  assert_eq!(curl.response_code().unwrap(), 200);
+  let xml = curl.get_ref();
+  println!("{}", String::from_utf8_lossy(&xml.0));
 }
 
 struct Collector(Vec<u8>);
