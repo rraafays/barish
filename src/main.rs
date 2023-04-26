@@ -8,8 +8,8 @@ fn main() {
   curl.perform().unwrap();
 
   assert_eq!(curl.response_code().unwrap(), 200);
-  let xml = curl.get_ref();
-  println!("{}", String::from_utf8_lossy(&xml.0));
+  let xml = &curl.get_ref().0;
+  println!("{}", String::from_utf8_lossy(xml));
 }
 
 struct Collector(Vec<u8>);
