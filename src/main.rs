@@ -1,5 +1,6 @@
 // https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/2643123
 mod rss;
+mod locations;
 
 use rss::Rss;
 use colored::Colorize;
@@ -20,7 +21,7 @@ fn main() {
   curl.get(true).unwrap();
 
   let mut link: String = String::from("https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/").to_owned();
-  link.push_str(&bbc_location::get_location_code(arguments.location).to_string());
+  link.push_str(&locations::get_location_code(arguments.location).to_string());
 
   curl.url(&link).unwrap() ;
   curl.perform().unwrap();
@@ -40,15 +41,5 @@ impl Handler for Collector {
   fn write(&mut self, data: &[u8]) -> Result<usize, WriteError> {
     self.0.extend_from_slice(data);
     Ok(data.len())
-  }
-}
-
-mod bbc_location {
-  pub fn get_location_code(location: String) -> u32 {
-    if location.to_lowercase() == "leeds" { return 2644688 }
-    if location.to_lowercase() == "bradford" { return 2654993 }
-    if location.to_lowercase() == "manchester" { return 2643123 }
-    if location.to_lowercase() == "sheffield" { return 2638077 }
-    else { return 0 }
   }
 }
