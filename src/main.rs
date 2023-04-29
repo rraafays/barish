@@ -8,7 +8,7 @@ use serde_xml_rs::from_str;
 fn main() {
   let mut curl = Easy2::new(Collector(Vec::new()));
   curl.get(true).unwrap();
-  curl.url("https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/2643123").unwrap();
+  curl.url("https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/2644688").unwrap();
   curl.perform().unwrap();
   assert_eq!(curl.response_code().unwrap(), 200);
 
