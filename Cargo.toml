@@ -6,6 +6,7 @@ description = "weather info in your terminal provided by bbc"
 license = "MIT"
 
 [dependencies]
+clap = { version = "4.2.5", features = [ "derive" ] }
 colored = "2.0.0"
 curl = "0.4.44"
 serde = { version = "1.0.160", features = [ "derive" ] }
