@@ -2,8 +2,8 @@
 
 use colored::Colorize;
 use curl::easy::{ Easy2, Handler, WriteError };
-use serde::Deserialize;
 use serde_xml_rs::from_str;
+use rss::Rss;
 
 fn main() {
   let mut curl = Easy2::new(Collector(Vec::new()));
@@ -28,21 +28,25 @@ impl Handler for Collector {
   }
 }
 
-#[derive(Deserialize)]
-struct Rss {
-  channel: Channel
-}
+mod rss {
+  use serde::Deserialize;
 
-#[derive(Deserialize)]
-struct Channel {
-  title: String,
-  description: String,
-  #[serde(rename = "item")]
-  items: [ Item; 3 ]
-}
+  #[derive(Deserialize)]
+  pub struct Rss {
+    pub channel: Channel
+  }
 
-#[derive(Deserialize)]
-struct Item {
-  title: String,
-  description: String
+  #[derive(Deserialize)]
+  pub struct Channel {
+    pub title: String,
+    pub description: String,
+    #[serde(rename = "item")]
+    pub items: [ Item; 3 ]
+  }
+
+  #[derive(Deserialize)]
+  pub struct Item {
+    pub title: String,
+    pub description: String
+  }
 }
