@@ -7,3 +7,5 @@ license = "MIT"
 
 [dependencies]
 curl = "0.4.44"
+serde = { version = "1.0.160", features = [ "derive" ] }
+serde-xml-rs = "0.6.0"
