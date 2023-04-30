@@ -30,10 +30,16 @@ fn main() {
   let xml = String::from_utf8_lossy(&curl.get_ref().0);
   let test: Rss = from_str(&xml).unwrap();
 
-  println!("{}", test.channel.title.blue());
-  println!("{}", test.channel.description.white());
+  println!("{}\n", test.channel.description.bright_blue());
+
   println!("{}", test.channel.items[0].title);
-  println!("{}", test.channel.items[0].description);
+  println!("{}\n|", test.channel.items[0].description);
+
+  println!("{}", test.channel.items[1].title);
+  println!("{}\n|", test.channel.items[1].description);
+
+  println!("{}", test.channel.items[2].title);
+  println!("{}", test.channel.items[2].description);
 }
 
 struct Collector(Vec<u8>);
