@@ -11,7 +11,7 @@ use clap::Parser;
 #[derive(Parser)]
 struct Arguments {
   #[arg(short, long, default_value_t = false)]
-  brief: bool,
+  verbose: bool,
   #[arg(short, long)]
   location: String
 }
@@ -32,10 +32,10 @@ fn main() {
   let xml = String::from_utf8_lossy(&curl.get_ref().0);
   let test: Rss = from_str(&xml).unwrap();
 
-  if !arguments.brief { println!("{}\n", test.channel.description.bright_blue()); }
+  if arguments.verbose { println!("{}\n", test.channel.description.bright_blue()); }
 
   println!("{}", test.channel.items[0].title.replace("Today", &"Today".bright_cyan().to_string()));
-  if !arguments.brief { println!("{}\n", test.channel.items[0].description.bright_black()); }
+  if arguments.verbose { println!("{}\n", test.channel.items[0].description.bright_black()); }
   println!("{}", test.channel.items[1].title
     .replace("Monday", &"Monday".bright_magenta().to_string())
     .replace("Tuesday", &"Tuesday".bright_magenta().to_string())
@@ -45,7 +45,7 @@ fn main() {
     .replace("Saturday", &"Saturday".bright_magenta().to_string())
     .replace("Sunday", &"Sunday".bright_magenta().to_string())
   );
-  if !arguments.brief { println!("{}\n", test.channel.items[1].description.bright_black()); }
+  if arguments.verbose { println!("{}\n", test.channel.items[1].description.bright_black()); }
   println!("{}", test.channel.items[2].title
     .replace("Monday", &"Monday".bright_yellow().to_string())
     .replace("Tuesday", &"Tuesday".bright_yellow().to_string())
@@ -55,7 +55,7 @@ fn main() {
     .replace("Saturday", &"Saturday".bright_yellow().to_string())
     .replace("Sunday", &"Sunday".bright_yellow().to_string())
   );
-  if !arguments.brief { println!("{}\n", test.channel.items[2].description.bright_black()); }
+  if arguments.verbose { println!("{}\n", test.channel.items[2].description.bright_black()); }
 }
 
 struct Collector(Vec<u8>);
