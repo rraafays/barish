@@ -10,6 +10,8 @@ use clap::Parser;
 
 #[derive(Parser)]
 struct Arguments {
+  #[arg(short, long, default_value_t = false)]
+  brief: bool,
   #[arg(short, long)]
   location: String
 }
@@ -32,14 +34,39 @@ fn main() {
 
   println!("{}\n", test.channel.description.bright_blue());
 
-  println!("{}", test.channel.items[0].title);
-  println!("{}\n|", test.channel.items[0].description);
+  println!("{}", test.channel.items[0].title.replace("Today", &"Today".bright_cyan().to_string()));
 
-  println!("{}", test.channel.items[1].title);
-  println!("{}\n|", test.channel.items[1].description);
+  if !arguments.brief {
+    println!("{}\n", test.channel.items[0].description.bright_black());
+  }
 
-  println!("{}", test.channel.items[2].title);
-  println!("{}", test.channel.items[2].description);
+  println!("{}", test.channel.items[1].title
+    .replace("Monday", &"Monday".bright_magenta().to_string())
+    .replace("Tuesday", &"Tuesday".bright_magenta().to_string())
+    .replace("Wednesday", &"Wednesday".bright_magenta().to_string())
+    .replace("Thursday", &"Thursday".bright_magenta().to_string())
+    .replace("Friday", &"Friday".bright_magenta().to_string())
+    .replace("Saturday", &"Saturday".bright_magenta().to_string())
+    .replace("Sunday", &"Sunday".bright_magenta().to_string())
+  );
+
+  if !arguments.brief {
+    println!("{}\n", test.channel.items[1].description.bright_black());
+  }
+
+  println!("{}", test.channel.items[2].title
+    .replace("Monday", &"Monday".bright_yellow().to_string())
+    .replace("Tuesday", &"Tuesday".bright_yellow().to_string())
+    .replace("Wednesday", &"Wednesday".bright_yellow().to_string())
+    .replace("Thursday", &"Thursday".bright_yellow().to_string())
+    .replace("Friday", &"Friday".bright_yellow().to_string())
+    .replace("Saturday", &"Saturday".bright_yellow().to_string())
+    .replace("Sunday", &"Sunday".bright_yellow().to_string())
+  );
+
+  if !arguments.brief {
+    println!("{}\n", test.channel.items[2].description.bright_black());
+  }
 }
 
 struct Collector(Vec<u8>);

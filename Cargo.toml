@@ -1,6 +1,6 @@
 [package]
 name = "barish"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2021"
 description = "weather info in your terminal provided by bbc"
 license = "MIT"
