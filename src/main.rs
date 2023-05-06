@@ -27,7 +27,12 @@ fn main() {
 
   curl.url(&link).unwrap() ;
   curl.perform().unwrap();
-  assert_eq!(curl.response_code().unwrap(), 200);
+
+  if curl.response_code().unwrap() != 200 
+  { 
+    println!("{} please provide a location!", "ERROR:".bright_red()); 
+    return;
+  }
 
   let xml = String::from_utf8_lossy(&curl.get_ref().0);
   let test: Rss = from_str(&xml).unwrap();
