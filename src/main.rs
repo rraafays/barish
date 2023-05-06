@@ -39,7 +39,10 @@ fn main() {
 
   if arguments.verbose { println!("{}\n", test.channel.description.bright_blue()); }
 
-  println!("{}", test.channel.items[0].title.replace("Today:", &"Today:".bright_cyan().to_string()));
+  println!("{}", test.channel.items[0].title
+    .replace("Today:", &"Today:".bright_cyan().to_string())
+    .replace("Tonight:", &"Tonight:".bright_cyan().to_string())
+  );
   if arguments.verbose { println!("{}\n", test.channel.items[0].description.bright_black()); }
   println!("{}", test.channel.items[1].title
     .replace("Monday:", &"Monday:".bright_magenta().to_string())
