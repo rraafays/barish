@@ -30,7 +30,7 @@ fn main() {
 
   if curl.response_code().unwrap() != 200 
   { 
-    println!("{} please provide a location!", "ERROR:".bright_red()); 
+    println!("{} please provide a valid location!", "error:".red()); 
     return;
   }
 
@@ -39,26 +39,26 @@ fn main() {
 
   if arguments.verbose { println!("{}\n", test.channel.description.bright_blue()); }
 
-  println!("{}", test.channel.items[0].title.replace("Today", &"Today".bright_cyan().to_string()));
+  println!("{}", test.channel.items[0].title.replace("Today:", &"Today:".bright_cyan().to_string()));
   if arguments.verbose { println!("{}\n", test.channel.items[0].description.bright_black()); }
   println!("{}", test.channel.items[1].title
-    .replace("Monday", &"Monday".bright_magenta().to_string())
-    .replace("Tuesday", &"Tuesday".bright_magenta().to_string())
-    .replace("Wednesday", &"Wednesday".bright_magenta().to_string())
-    .replace("Thursday", &"Thursday".bright_magenta().to_string())
-    .replace("Friday", &"Friday".bright_magenta().to_string())
-    .replace("Saturday", &"Saturday".bright_magenta().to_string())
-    .replace("Sunday", &"Sunday".bright_magenta().to_string())
+    .replace("Monday:", &"Monday:".bright_magenta().to_string())
+    .replace("Tuesday:", &"Tuesday:".bright_magenta().to_string())
+    .replace("Wednesday:", &"Wednesday:".bright_magenta().to_string())
+    .replace("Thursday:", &"Thursday:".bright_magenta().to_string())
+    .replace("Friday:", &"Friday:".bright_magenta().to_string())
+    .replace("Saturday:", &"Saturday:".bright_magenta().to_string())
+    .replace("Sunday:", &"Sunday:".bright_magenta().to_string())
   );
   if arguments.verbose { println!("{}\n", test.channel.items[1].description.bright_black()); }
   println!("{}", test.channel.items[2].title
-    .replace("Monday", &"Monday".bright_yellow().to_string())
-    .replace("Tuesday", &"Tuesday".bright_yellow().to_string())
-    .replace("Wednesday", &"Wednesday".bright_yellow().to_string())
-    .replace("Thursday", &"Thursday".bright_yellow().to_string())
-    .replace("Friday", &"Friday".bright_yellow().to_string())
-    .replace("Saturday", &"Saturday".bright_yellow().to_string())
-    .replace("Sunday", &"Sunday".bright_yellow().to_string())
+    .replace("Monday:", &"Monday:".bright_yellow().to_string())
+    .replace("Tuesday:", &"Tuesday:".bright_yellow().to_string())
+    .replace("Wednesday:", &"Wednesday:".bright_yellow().to_string())
+    .replace("Thursday:", &"Thursday:".bright_yellow().to_string())
+    .replace("Friday:", &"Friday:".bright_yellow().to_string())
+    .replace("Saturday:", &"Saturday:".bright_yellow().to_string())
+    .replace("Sunday:", &"Sunday:".bright_yellow().to_string())
   );
   if arguments.verbose { println!("{}\n", test.channel.items[2].description.bright_black()); }
 }
