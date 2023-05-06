@@ -1,4 +1,3 @@
-// https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/2643123
 mod rss;
 mod locations;
 
@@ -14,6 +13,14 @@ struct Arguments {
   verbose: bool,
   #[arg(short, long)]
   location: String
+}
+
+struct Collector(Vec<u8>);
+impl Handler for Collector {
+  fn write(&mut self, data: &[u8]) -> Result<usize, WriteError> {
+    self.0.extend_from_slice(data);
+    Ok(data.len())
+  }
 }
 
 fn main() {
@@ -35,41 +42,28 @@ fn main() {
   }
 
   let xml = String::from_utf8_lossy(&curl.get_ref().0);
-  let test: Rss = from_str(&xml).unwrap();
+  let rss: Rss = from_str(&xml).unwrap();
 
-  if arguments.verbose { println!("{}\n", test.channel.description.bright_blue()); }
+  if arguments.verbose { println!("{}\n", rss.channel.description.bright_blue()); }
 
-  println!("{}", test.channel.items[0].title
-    .replace("Today:", &"Today:".bright_cyan().to_string())
-    .replace("Tonight:", &"Tonight:".bright_cyan().to_string())
-  );
-  if arguments.verbose { println!("{}\n", test.channel.items[0].description.bright_black()); }
-  println!("{}", test.channel.items[1].title
-    .replace("Monday:", &"Monday:".bright_magenta().to_string())
-    .replace("Tuesday:", &"Tuesday:".bright_magenta().to_string())
-    .replace("Wednesday:", &"Wednesday:".bright_magenta().to_string())
-    .replace("Thursday:", &"Thursday:".bright_magenta().to_string())
-    .replace("Friday:", &"Friday:".bright_magenta().to_string())
-    .replace("Saturday:", &"Saturday:".bright_magenta().to_string())
-    .replace("Sunday:", &"Sunday:".bright_magenta().to_string())
-  );
-  if arguments.verbose { println!("{}\n", test.channel.items[1].description.bright_black()); }
-  println!("{}", test.channel.items[2].title
-    .replace("Monday:", &"Monday:".bright_yellow().to_string())
-    .replace("Tuesday:", &"Tuesday:".bright_yellow().to_string())
-    .replace("Wednesday:", &"Wednesday:".bright_yellow().to_string())
-    .replace("Thursday:", &"Thursday:".bright_yellow().to_string())
-    .replace("Friday:", &"Friday:".bright_yellow().to_string())
-    .replace("Saturday:", &"Saturday:".bright_yellow().to_string())
-    .replace("Sunday:", &"Sunday:".bright_yellow().to_string())
-  );
-  if arguments.verbose { println!("{}\n", test.channel.items[2].description.bright_black()); }
-}
+  let mut first_word: &str;
 
-struct Collector(Vec<u8>);
-impl Handler for Collector {
-  fn write(&mut self, data: &[u8]) -> Result<usize, WriteError> {
-    self.0.extend_from_slice(data);
-    Ok(data.len())
-  }
+  first_word = rss.channel.items[0].title
+    .split_whitespace()
+    .next()
+    .unwrap_or("");
+  println!("{}", rss.channel.items[0].title .replace(first_word, &first_word.bright_cyan().to_string()));
+  if arguments.verbose { println!("{}\n", rss.channel.items[0].description.bright_black()); }
+  first_word = rss.channel.items[1].title
+    .split_whitespace()
+    .next()
+    .unwrap_or("");
+  println!("{}", rss.channel.items[1].title .replace(first_word, &first_word.bright_magenta().to_string()));
+  if arguments.verbose { println!("{}\n", rss.channel.items[1].description.bright_black()); }
+  first_word = rss.channel.items[2].title
+    .split_whitespace()
+    .next()
+    .unwrap_or("");
+  println!("{}", rss.channel.items[2].title .replace(first_word, &first_word.bright_yellow().to_string()));
+  if arguments.verbose { println!("{}\n", rss.channel.items[2].description.bright_black()); }
 }
