@@ -56,7 +56,7 @@ fn main() {
       .next()
       .unwrap_or("");
     println!("{}", item.title.replace(label, &label.color(get_colour(x)).to_string()));
-    if arguments.verbose { println!("{}\n", item.description.bright_black()); }
+    if arguments.verbose { println!("{}\n", item.description.replace(", ", "\n").bright_black()); }
     x += 1;
   }
 }
