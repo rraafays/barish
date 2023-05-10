@@ -4,10 +4,10 @@ mod utils;
 
 use rss::Rss;
 use locations::get_location_code;
-use utils::get_colour;
+use utils::{ get_colour, Collector };
 
 use colored::Colorize;
-use curl::easy::{ Easy2, Handler, WriteError };
+use curl::easy::Easy2;
 use serde_xml_rs::from_str;
 use clap::Parser;
 
@@ -17,14 +17,6 @@ struct Arguments {
   verbose: bool,
   #[arg(short, long)]
   location: String
-}
-
-struct Collector(Vec<u8>);
-impl Handler for Collector {
-  fn write(&mut self, data: &[u8]) -> Result<usize, WriteError> {
-    self.0.extend_from_slice(data);
-    Ok(data.len())
-  }
 }
 
 fn main() {
