@@ -1,140 +1,140 @@
 #[cfg_attr(rustfmt, rustfmt_skip)]
 pub fn get_location_code(location: String) -> u32 {
     let location = location.to_lowercase();
-    if location == "aberdeen" { return 2657832 }
-    if location == "aberystwyth" { return 2657782 }
-    if location == "anglesey" { return 6296618 }
-    if location == "bangor" { return 2656397 }
-    if location == "barnstaple" { return 2656281 }
-    if location == "barrow-in-furness" { return 2656241 }
-    if location == "basingstoke" { return 2656192 }
-    if location == "bath" { return 2656173 }
-    if location == "blackpool" { return 2655459 }
-    if location == "bedford" { return 2656046 }
-    if location == "belfast" { return 2655984 }
-    if location == "berwick-upon-tweed" { return 2655819 }
-    if location == "bideford" { return 2655707 }
-    if location == "bodmin" { return 2655273 }
-    if location == "bournemouth" { return 2655095 }
-    if location == "bradford" { return 2654993 }
-    if location == "bridlington" { return 2654728 }
-    if location == "brighton" { return 2654710 }
-    if location == "bristol" { return 2654675 }
-    if location == "bude" { return 2654380 }
-    if location == "bury-st-edmunds" { return 2654186 }
-    if location == "caernafon" { return 2654092 }
-    if location == "cambridge" { return 2653941 }
-    if location == "canterbury" { return 2653877 }
-    if location == "cardiff" { return 2653822 }
-    if location == "carlisle" { return 2653775 }
-    if location == "chelmsford" { return 2653266 }
-    if location == "cheltenham" { return 2653261 }
-    if location == "chester" { return 2653228 }
-    if location == "chesterfield" { return 2653225 }
-    if location == "chippenham" { return 2653144 }
-    if location == "cirencester" { return 2652995 }
-    if location == "clacton-on-sea" { return 2652974 }
-    if location == "colchester" { return 2652618 }
-    if location == "cork" { return 2965140 }
-    if location == "croydon" { return 2651817 }
-    if location == "derby" { return 2651347 }
-    if location == "derry" { return 2643736 }
-    if location == "doncaster" { return 2651123 }
-    if location == "dover" { return 2651048 }
-    if location == "dublin" { return 2964574 }
-    if location == "dumfries" { return 2650798 }
-    if location == "dundee" { return 2650752 }
-    if location == "durham" { return 2650628 }
-    if location == "eastbourne" { return 2650497 }
-    if location == "edinburgh" { return 2650225 }
-    if location == "exeter" { return 2649808 }
-    if location == "exmouth" { return 2634202 }
-    if location == "falmouth" { return 2649715 }
-    if location == "felixstowe" { return 2649579 }
-    if location == "folkestone" { return 2649258 }
-    if location == "galway" { return 2964180 }
-    if location == "glasgow" { return 2648579 }
-    if location == "glastonbury" { return 2648559 }
-    if location == "gloucester" { return 2648404 }
-    if location == "grimsby" { return 2647878 }
-    if location == "guildford" { return 2647793 }
-    if location == "halifax" { return 2647632 }
-    if location == "harrogate" { return 2647428 }
-    if location == "hastings" { return 2647356 }
-    if location == "hereford" { return 2647074 }
-    if location == "haverfordwest" { return 2647311 }
-    if location == "huddersfield" { return 2646458 }
-    if location == "hull" { return 2645425 }
-    if location == "ilfracombe" { return 2646276 }
-    if location == "inverness" { return 2646088 }
-    if location == "ipswich" { return 2646057 }
-    if location == "kendal" { return 2645826 }
-    if location == "keswick" { return 2645756 }
-    if location == "lancaster" { return 2644972 }
-    if location == "llandudno" { return 2644120 }
-    if location == "limerick" { return 2962943 }
-    if location == "leeds" { return 2644688 }
-    if location == "lincoln" { return 2644487 }
-    if location == "llanelli" { return 2644100 }
-    if location == "liverpool" { return 2644210 }
-    if location == "london" { return 2643743 }
-    if location == "luton" { return 2643339 }
-    if location == "maidstone" { return 2643179 }
-    if location == "manchester" { return 2643123 }
-    if location == "margate" { return 2643044 }
-    if location == "merthyr" { return 2642707 }
-    if location == "middlesborough" { return 2642607 }
-    if location == "milford-haven" { return 2642534 }
-    if location == "milton-keynes" { return 2642465 }
-    if location == "minehead" { return 2642450 }
-    if location == "monmouth" { return 2642313 }
-    if location == "newcastle-upon-type" { return 2641673 }
-    if location == "newport" { return 2641598 }
-    if location == "newquay" { return 2641589 }
-    if location == "northampton" { return 2641430 }
-    if location == "nottingham" { return 2645425 }
-    if location == "oban" { return 2641108 }
-    if location == "oswestry" { return 2640861 }
-    if location == "oxford" { return 2640729 }
-    if location == "penrith" { return 2640416 }
-    if location == "penzance" { return 2640377 }
-    if location == "plymouth" { return 2640194 }
-    if location == "poole" { return 2640101 }
-    if location == "portsmouth" { return 2639996 }
-    if location == "pwllheli" { return 2639828 }
-    if location == "reading" { return 2639577 }
-    if location == "sheffield" { return 2638077 }
-    if location == "salisbury" { return 2638664 }
-    if location == "scarborough" { return 2638419 }
-    if location == "scunthorpe" { return 2638324 }
-    if location == "shrewsbury" { return 2637891 }
-    if location == "skegness" { return 2637762 }
-    if location == "southend-on-sea" { return 2637433 }
-    if location == "southampton" { return 2637487 }
-    if location == "st-austell" { return 2638853 }
-    if location == "st-davids" { return 2638822 }
-    if location == "st-ives" { return 2638778 }
-    if location == "stranraer" { return 2636719 }
-    if location == "stratford-upon-avon" { return 2636713 }
-    if location == "sunderland" { return 2636531 }
-    if location == "swansea" { return 2636432 }
-    if location == "swindown" { return 2636389 }
-    if location == "taunton" { return 2636177 }
-    if location == "tenby" { return 2636104 }
-    if location == "tintagel" { return 8299848 }
-    if location == "torquay" { return 2649808 }
-    if location == "tring" { return 2635459 }
-    if location == "truro" { return 2635412 }
-    if location == "warrington" { return 2634739 }
-    if location == "waterford" { return 2960992 }
-    if location == "watford" { return 2634677 }
-    if location == "weymouth" { return 2634202 }
-    if location == "winchester" { return 2633858 }
-    if location == "worcester" { return 2633563 }
-    if location == "workington" { return 2633553 }
-    if location == "worthing" { return 2633521 }
-    if location == "wrexham" { return 2633485 }
-    if location == "yeovil" { return 2633373 }
-    if location == "york" { return 2633352 }
-    else { return 0 }
+    if location == "aberdeen" { 2657832 }
+    if location == "aberystwyth" { 2657782 }
+    if location == "anglesey" { 6296618 }
+    if location == "bangor" { 2656397 }
+    if location == "barnstaple" { 2656281 }
+    if location == "barrow-in-furness" { 2656241 }
+    if location == "basingstoke" { 2656192 }
+    if location == "bath" { 2656173 }
+    if location == "blackpool" { 2655459 }
+    if location == "bedford" { 2656046 }
+    if location == "belfast" { 2655984 }
+    if location == "berwick-upon-tweed" { 2655819 }
+    if location == "bideford" { 2655707 }
+    if location == "bodmin" { 2655273 }
+    if location == "bournemouth" { 2655095 }
+    if location == "bradford" { 2654993 }
+    if location == "bridlington" { 2654728 }
+    if location == "brighton" { 2654710 }
+    if location == "bristol" { 2654675 }
+    if location == "bude" { 2654380 }
+    if location == "bury-st-edmunds" { 2654186 }
+    if location == "caernafon" { 2654092 }
+    if location == "cambridge" { 2653941 }
+    if location == "canterbury" { 2653877 }
+    if location == "cardiff" { 2653822 }
+    if location == "carlisle" { 2653775 }
+    if location == "chelmsford" { 2653266 }
+    if location == "cheltenham" { 2653261 }
+    if location == "chester" { 2653228 }
+    if location == "chesterfield" { 2653225 }
+    if location == "chippenham" { 2653144 }
+    if location == "cirencester" { 2652995 }
+    if location == "clacton-on-sea" { 2652974 }
+    if location == "colchester" { 2652618 }
+    if location == "cork" { 2965140 }
+    if location == "croydon" { 2651817 }
+    if location == "derby" { 2651347 }
+    if location == "derry" { 2643736 }
+    if location == "doncaster" { 2651123 }
+    if location == "dover" { 2651048 }
+    if location == "dublin" { 2964574 }
+    if location == "dumfries" { 2650798 }
+    if location == "dundee" { 2650752 }
+    if location == "durham" { 2650628 }
+    if location == "eastbourne" { 2650497 }
+    if location == "edinburgh" { 2650225 }
+    if location == "exeter" { 2649808 }
+    if location == "exmouth" { 2634202 }
+    if location == "falmouth" { 2649715 }
+    if location == "felixstowe" { 2649579 }
+    if location == "folkestone" { 2649258 }
+    if location == "galway" { 2964180 }
+    if location == "glasgow" { 2648579 }
+    if location == "glastonbury" { 2648559 }
+    if location == "gloucester" { 2648404 }
+    if location == "grimsby" { 2647878 }
+    if location == "guildford" { 2647793 }
+    if location == "halifax" { 2647632 }
+    if location == "harrogate" { 2647428 }
+    if location == "hastings" { 2647356 }
+    if location == "hereford" { 2647074 }
+    if location == "haverfordwest" { 2647311 }
+    if location == "huddersfield" { 2646458 }
+    if location == "hull" { 2645425 }
+    if location == "ilfracombe" { 2646276 }
+    if location == "inverness" { 2646088 }
+    if location == "ipswich" { 2646057 }
+    if location == "kendal" { 2645826 }
+    if location == "keswick" { 2645756 }
+    if location == "lancaster" { 2644972 }
+    if location == "llandudno" { 2644120 }
+    if location == "limerick" { 2962943 }
+    if location == "leeds" { 2644688 }
+    if location == "lincoln" { 2644487 }
+    if location == "llanelli" { 2644100 }
+    if location == "liverpool" { 2644210 }
+    if location == "london" { 2643743 }
+    if location == "luton" { 2643339 }
+    if location == "maidstone" { 2643179 }
+    if location == "manchester" { 2643123 }
+    if location == "margate" { 2643044 }
+    if location == "merthyr" { 2642707 }
+    if location == "middlesborough" { 2642607 }
+    if location == "milford-haven" { 2642534 }
+    if location == "milton-keynes" { 2642465 }
+    if location == "minehead" { 2642450 }
+    if location == "monmouth" { 2642313 }
+    if location == "newcastle-upon-type" { 2641673 }
+    if location == "newport" { 2641598 }
+    if location == "newquay" { 2641589 }
+    if location == "northampton" { 2641430 }
+    if location == "nottingham" { 2645425 }
+    if location == "oban" { 2641108 }
+    if location == "oswestry" { 2640861 }
+    if location == "oxford" { 2640729 }
+    if location == "penrith" { 2640416 }
+    if location == "penzance" { 2640377 }
+    if location == "plymouth" { 2640194 }
+    if location == "poole" { 2640101 }
+    if location == "portsmouth" { 2639996 }
+    if location == "pwllheli" { 2639828 }
+    if location == "reading" { 2639577 }
+    if location == "sheffield" { 2638077 }
+    if location == "salisbury" { 2638664 }
+    if location == "scarborough" { 2638419 }
+    if location == "scunthorpe" { 2638324 }
+    if location == "shrewsbury" { 2637891 }
+    if location == "skegness" { 2637762 }
+    if location == "southend-on-sea" { 2637433 }
+    if location == "southampton" { 2637487 }
+    if location == "st-austell" { 2638853 }
+    if location == "st-davids" { 2638822 }
+    if location == "st-ives" { 2638778 }
+    if location == "stranraer" { 2636719 }
+    if location == "stratford-upon-avon" { 2636713 }
+    if location == "sunderland" { 2636531 }
+    if location == "swansea" { 2636432 }
+    if location == "swindown" { 2636389 }
+    if location == "taunton" { 2636177 }
+    if location == "tenby" { 2636104 }
+    if location == "tintagel" { 8299848 }
+    if location == "torquay" { 2649808 }
+    if location == "tring" { 2635459 }
+    if location == "truro" { 2635412 }
+    if location == "warrington" { 2634739 }
+    if location == "waterford" { 2960992 }
+    if location == "watford" { 2634677 }
+    if location == "weymouth" { 2634202 }
+    if location == "winchester" { 2633858 }
+    if location == "worcester" { 2633563 }
+    if location == "workington" { 2633553 }
+    if location == "worthing" { 2633521 }
+    if location == "wrexham" { 2633485 }
+    if location == "yeovil" { 2633373 }
+    if location == "york" { 2633352 }
+    else { 0 }
 }
