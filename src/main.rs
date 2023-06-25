@@ -41,17 +41,17 @@ fn main() {
     let rss: Rss = from_str(&xml).unwrap();
 
     let mut label: &str;
-    let mut x: u8 = 4;
-    for item in rss.channel.items {
+    let mut colour_value: u8 = 4; // blue
+    for item in rss.channel.items.iter() {
         label = item.title.split_whitespace().next().unwrap_or("");
         println!(
             "{}",
             item.title
-                .replace(label, &label.color(get_colour(x)).to_string())
+                .replace(label, &label.color(get_colour(colour_value)).to_string())
         );
         if arguments.verbose {
             println!("{}\n", item.description.replace(", ", "\n").bright_black());
         }
-        x += 1;
+        colour_value += 1;
     }
 }
