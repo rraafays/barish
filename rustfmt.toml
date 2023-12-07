@@ -1,3 +1,6 @@
 fn_single_line = true
 where_single_line = true
 tab_spaces = 4
+imports_layout = "Vertical"
+hex_literal_case = "Upper"
+max_width = 80

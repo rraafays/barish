@@ -1,5 +1,8 @@
 use colored::Color;
-use curl::easy::{Handler, WriteError};
+use curl::easy::{
+    Handler,
+    WriteError,
+};
 
 pub fn get_colour(colour: u8) -> Color {
     match colour {

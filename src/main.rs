@@ -4,7 +4,10 @@ mod utils;
 
 use locations::get_location_code;
 use rss::Rss;
-use utils::{get_colour, Collector};
+use utils::{
+    get_colour,
+    Collector,
+};
 
 use clap::Parser;
 use colored::Colorize;
@@ -25,8 +28,10 @@ fn main() {
     let mut curl = Easy2::new(Collector(Vec::new()));
     curl.get(true).unwrap();
 
-    let mut link: String =
-        String::from("https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/").to_owned();
+    let mut link: String = String::from(
+        "https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/",
+    )
+    .to_owned();
     link.push_str(&get_location_code(arguments.location).to_string());
 
     curl.url(&link).unwrap();
@@ -46,11 +51,16 @@ fn main() {
         label = item.title.split_whitespace().next().unwrap_or("");
         println!(
             "{}",
-            item.title
-                .replace(label, &label.color(get_colour(colour_value)).to_string())
+            item.title.replace(
+                label,
+                &label.color(get_colour(colour_value)).to_string()
+            )
         );
         if arguments.verbose {
-            println!("{}\n", item.description.replace(", ", "\n").bright_black());
+            println!(
+                "{}\n",
+                item.description.replace(", ", "\n").bright_black()
+            );
         }
         colour_value += 1;
     }
