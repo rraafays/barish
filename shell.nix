@@ -8,5 +8,6 @@ pkgs.mkShell {
     rust-analyzer
     rustfmt
     curl
+    pkg-config
   ] ++ lib.optional stdenv.isDarwin libiconv;
 }
