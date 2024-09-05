@@ -13,6 +13,8 @@
         {
           devShells.default = pkgs.mkShell {
             nativeBuildInputs = with pkgs; [
+              pkg-config
+              openssl
               cargo
               rustc
               rustfmt
