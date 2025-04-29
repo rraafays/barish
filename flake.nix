@@ -28,8 +28,12 @@
               rustfmt
               rust-analyzer
               openssl
+              curl
+              curl.dev
             ]
-            ++ lib.optional stdenv.isDarwin libiconv;
+            ++ lib.optional stdenv.isDarwin [
+              libiconv
+            ];
         };
       }
     );
